@@ -1,0 +1,26 @@
+Configuration:
+  name: Default
+
+  Appenders:
+    Console:
+      name: LogToConsole
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    File:
+      name: LogToFile
+      filename: lesson32.log
+      PatternLayout:
+        pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+
+Loggers:
+  Root:
+    level: debug
+    AppenderRef:
+      - ref: LogToConsole
+
+  Logger:
+    - name: lesson32
+      level: debug
+      AppenderRef:
+        - ref: LogToFile
